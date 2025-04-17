@@ -25848,3 +25848,66 @@ Currency{code='TRY', name='Turkish Lira', usdRate=38.055415}
 Currency{code='AED', name='Emirati Dirham', usdRate=3.6725}
 Currency{code='GBP', name='British Pound', usdRate=0.754531}
 Currency{code='USD', name='US Dollar', usdRate=1.0}
+dopost
+17-Apr-2025 20:38:08.631 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/myapp2]
+17-Apr-2025 20:38:08.662 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\Utku\Desktop\some-java\currencyConverter1\apache-tomcat-10.1.39\webapps\myapp2.war]
+17-Apr-2025 20:38:10.339 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Apr-2025 20:38:10.573 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\Utku\Desktop\some-java\currencyConverter1\apache-tomcat-10.1.39\webapps\myapp2.war] has finished in [1,911] ms
+dopost
+Currency{code='ARS', name='Argentine Peso', usdRate=1137.404363}
+Currency{code='AUD', name='Australian Dollar', usdRate=1.566891}
+Currency{code='BHD', name='Bahraini Dinar', usdRate=0.376}
+Currency{code='BWP', name='Botswana Pula', usdRate=13.780354}
+Currency{code='BRL', name='Brazilian Real', usdRate=5.816864}
+Currency{code='BND', name='Bruneian Dollar', usdRate=1.312063}
+Currency{code='BGN', name='Bulgarian Lev', usdRate=1.723505}
+Currency{code='CAD', name='Canadian Dollar', usdRate=1.384116}
+Currency{code='CLP', name='Chilean Peso', usdRate=967.133373}
+Currency{code='CNY', name='Chinese Yuan Renminbi', usdRate=7.299658}
+Currency{code='COP', name='Colombian Peso', usdRate=4310.420618}
+Currency{code='CZK', name='Czech Koruna', usdRate=22.078942}
+Currency{code='DKK', name='Danish Krone', usdRate=6.579915}
+Currency{code='EUR', name='Euro', usdRate=0.881214}
+Currency{code='HKD', name='Hong Kong Dollar', usdRate=7.76376}
+Currency{code='HUF', name='Hungarian Forint', usdRate=359.849904}
+Currency{code='ISK', name='Icelandic Krona', usdRate=127.862881}
+Currency{code='INR', name='Indian Rupee', usdRate=85.400656}
+Currency{code='IDR', name='Indonesian Rupiah', usdRate=16851.231235}
+Currency{code='IRR', name='Iranian Rial', usdRate=42075.891424}
+Currency{code='ILS', name='Israeli Shekel', usdRate=3.681191}
+Currency{code='JPY', name='Japanese Yen', usdRate=142.439352}
+Currency{code='KZT', name='Kazakhstani Tenge', usdRate=523.437054}
+Currency{code='KRW', name='South Korean Won', usdRate=1417.764094}
+Currency{code='KWD', name='Kuwaiti Dinar', usdRate=0.306853}
+Currency{code='LYD', name='Libyan Dinar', usdRate=5.469314}
+Currency{code='MYR', name='Malaysian Ringgit', usdRate=4.407127}
+Currency{code='MUR', name='Mauritian Rupee', usdRate=45.035131}
+Currency{code='MXN', name='Mexican Peso', usdRate=19.743411}
+Currency{code='NPR', name='Nepalese Rupee', usdRate=136.7051}
+Currency{code='NZD', name='New Zealand Dollar', usdRate=1.675858}
+Currency{code='NOK', name='Norwegian Krone', usdRate=10.492931}
+Currency{code='OMR', name='Omani Rial', usdRate=0.385024}
+Currency{code='PKR', name='Pakistani Rupee', usdRate=280.493676}
+Currency{code='PHP', name='Philippine Peso', usdRate=56.748256}
+Currency{code='PLN', name='Polish Zloty', usdRate=3.775457}
+Currency{code='QAR', name='Qatari Riyal', usdRate=3.64}
+Currency{code='RON', name='Romanian New Leu', usdRate=4.386894}
+Currency{code='RUB', name='Russian Ruble', usdRate=82.10782}
+Currency{code='SAR', name='Saudi Arabian Riyal', usdRate=3.75}
+Currency{code='SGD', name='Singapore Dollar', usdRate=1.312063}
+Currency{code='ZAR', name='South African Rand', usdRate=18.831501}
+Currency{code='LKR', name='Sri Lankan Rupee', usdRate=298.797108}
+Currency{code='SEK', name='Swedish Krona', usdRate=9.636427}
+Currency{code='CHF', name='Swiss Franc', usdRate=0.820999}
+Currency{code='TWD', name='Taiwan New Dollar', usdRate=32.52428}
+Currency{code='THB', name='Thai Baht', usdRate=33.343758}
+Currency{code='TTD', name='Trinidadian Dollar', usdRate=6.788246}
+Currency{code='TRY', name='Turkish Lira', usdRate=38.046176}
+Currency{code='AED', name='Emirati Dirham', usdRate=3.6725}
+Currency{code='GBP', name='British Pound', usdRate=0.754642}
+Currency{code='USD', name='US Dollar', usdRate=1.0}
+dopost
+17-Apr-2025 20:44:00.972 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/myapp2]
+17-Apr-2025 20:44:01.018 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [C:\Users\Utku\Desktop\some-java\currencyConverter1\apache-tomcat-10.1.39\webapps\myapp2.war]
+17-Apr-2025 20:44:02.687 INFO [Catalina-utility-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+17-Apr-2025 20:44:03.025 INFO [Catalina-utility-1] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [C:\Users\Utku\Desktop\some-java\currencyConverter1\apache-tomcat-10.1.39\webapps\myapp2.war] has finished in [2,009] ms
