@@ -1,8 +1,6 @@
 package com.example.currencyConverter.currencies;
 
-import com.example.currencyConverter.currencies.CurrencyFetcher;
-import com.example.currencyConverter.currencies.CurrencyOptionsPrinter;
-import com.example.currencyConverter.currencies.models.Currency;
+import com.example.currencyConverter.currencies.entity.Currency;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

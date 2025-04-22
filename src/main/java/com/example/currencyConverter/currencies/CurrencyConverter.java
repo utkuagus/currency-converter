@@ -1,6 +1,6 @@
 package com.example.currencyConverter.currencies;
 
-import com.example.currencyConverter.currencies.models.Currency;
+import com.example.currencyConverter.currencies.entity.Currency;
 import java.util.Optional;
 
 public class CurrencyConverter {

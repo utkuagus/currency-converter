@@ -1,10 +1,27 @@
-package com.example.currencyConverter.currencies.models;
+package com.example.currencyConverter.currencies.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Currency {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String code;
     private String name;
-    private double usdRate;
+    private Double usdRate;
 
     public Currency(String code, String name, double usdRate) {
         this.code = code;
@@ -28,11 +45,11 @@ public class Currency {
         this.name = name;
     }
 
-    public double getUsdRate() {
+    public Double getUsdRate() {
         return usdRate;
     }
 
-    public void setUsdRate(double usdRate) {
+    public void setUsdRate(Double usdRate) {
         this.usdRate = usdRate;
     }
 
@@ -45,4 +62,7 @@ public class Currency {
                 '}';
     }
 
+    public Long getId() {
+        return id;
+    }
 }

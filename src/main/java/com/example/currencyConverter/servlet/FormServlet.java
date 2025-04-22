@@ -30,8 +30,6 @@ public class FormServlet extends HttpServlet {
                           HttpServletResponse response)
       throws ServletException, IOException {
 
-        System.out.println("dopost");
-
         String amount = request.getParameter("amount");
         String fromCurrency = request.getParameter("fromCurrency");
         String toCurrency = request.getParameter("toCurrency");

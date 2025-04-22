@@ -1,6 +1,6 @@
 package com.example.currencyConverter.currencies;
 
-import com.example.currencyConverter.currencies.models.Currency;
+import com.example.currencyConverter.currencies.entity.Currency;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,20 +13,16 @@ import java.util.List;
 @Service
 public class CurrencyFetcher {
 
-    private List<Currency> currencyList;
+    private static final List<Currency> currencyList = new ArrayList<>();
 
-    public CurrencyFetcher() {
-        currencyList = new ArrayList<>();
-    }
-
-    public List<Currency> getCurrencyList() throws Exception {
+    public static List<Currency> getCurrencyList() throws Exception {
         if(currencyList.isEmpty()) {
             fetchCurrencyList();
         }
         return currencyList;
     }
 
-    public void fetchCurrencyList() throws Exception {
+    public static void fetchCurrencyList() throws Exception {
         String url = "https://www.x-rates.com/table/?from=USD&amount=1";
 
         Document jsoupDoc = Jsoup.connect(url)
