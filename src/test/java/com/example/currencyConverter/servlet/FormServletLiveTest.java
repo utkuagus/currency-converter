@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import java.net.http.HttpClient;
 import java.net.http.HttpResponse;
-import java.util.ArrayList; 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,12 +18,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class FormServletLiveTest {
 
     @Test
-    public void whenPostRequestUsingHttpClient_thenCorrect() 
-      throws Exception {
+    public void whenPostRequestUsingHttpClient_thenCorrect()
+            throws Exception {
 
         CloseableHttpClient client = HttpClientBuilder.create().build();
         HttpPost method = new HttpPost(
-          "http://localhost:8080/myapp2/calculateServlet");
+                "http://localhost:8080/myapp/calculateServlet");
 
         List<BasicNameValuePair> nvps = new ArrayList<>();
         nvps.add(new BasicNameValuePair("height", String.valueOf(2)));
@@ -33,8 +33,8 @@ public class FormServletLiveTest {
         CloseableHttpResponse httpResponse = client.execute(method);
 
         assertEquals("Success", httpResponse
-          .getHeaders("Test")[0].getValue());
+                .getHeaders("Test")[0].getValue());
         assertEquals("20.0", httpResponse
-          .getHeaders("BMI")[0].getValue());
+                .getHeaders("BMI")[0].getValue());
     }
 }

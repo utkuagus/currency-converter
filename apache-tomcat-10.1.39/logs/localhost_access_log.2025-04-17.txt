@@ -1,5 +1,0 @@
-0:0:0:0:0:0:0:1 - - [17/Apr/2025:20:33:27 +0300] "GET /myapp2/ HTTP/1.1" 200 581
-0:0:0:0:0:0:0:1 - - [17/Apr/2025:20:33:30 +0300] "POST /myapp2/calculateServlet HTTP/1.1" 200 7781
-127.0.0.1 - - [17/Apr/2025:20:34:35 +0300] "POST /myapp2/calculateServlet HTTP/1.1" 200 7781
-127.0.0.1 - - [17/Apr/2025:20:40:16 +0300] "POST /myapp2/calculateServlet HTTP/1.1" 200 7781
-127.0.0.1 - - [17/Apr/2025:20:41:56 +0300] "POST /myapp2/calculateServlet HTTP/1.1" 200 7781

@@ -1,34 +1,36 @@
 package com.example.currencyConverter.servlet;
 
-import com.example.currencyConverter.currencies.CurrencyConverter;
-import com.example.currencyConverter.currencies.CurrencyFetcher;
-import com.example.currencyConverter.currencies.CurrencyOptionsPrinter;
+import com.example.currencyConverter.currencies.service.CurrencyConverter;
+import com.example.currencyConverter.currencies.service.CurrencyOptionsPrinter;
+import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import java.io.IOException;
 
 @WebServlet(name = "FormServlet", urlPatterns = "/calculateServlet")
 public class FormServlet extends HttpServlet {
 
+    @Autowired
     private CurrencyOptionsPrinter currencyOptionsPrinter;
+    @Autowired
     private CurrencyConverter currencyConverter;
 
-
-    @Override
-    public void init() throws ServletException {
-        CurrencyFetcher currencyFetcher = new CurrencyFetcher();
-        currencyOptionsPrinter = new CurrencyOptionsPrinter(currencyFetcher);
-        currencyConverter = new CurrencyConverter(currencyFetcher);
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this,
+                config.getServletContext());
     }
 
     @Override
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)
-      throws ServletException, IOException {
+            throws ServletException, IOException {
 
         String amount = request.getParameter("amount");
         String fromCurrency = request.getParameter("fromCurrency");
@@ -36,7 +38,7 @@ public class FormServlet extends HttpServlet {
 
         Double result = null;
         try {
-            if(amount != null) {
+            if (amount != null) {
                 result = currencyConverter.convertCurrency(Double.valueOf(amount), fromCurrency, toCurrency);
             }
         } catch (Exception e) {
@@ -53,7 +55,7 @@ public class FormServlet extends HttpServlet {
 
             request.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
         } catch (Exception e) {
-            request.setAttribute("error", "error");
+            request.setAttribute("error", e.getMessage());
             request.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
         }
     }

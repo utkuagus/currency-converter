@@ -4,16 +4,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Getter
+@Setter
 public class Currency {
 
     @Id
@@ -23,35 +22,12 @@ public class Currency {
     private String name;
     private Double usdRate;
 
-    public Currency(String code, String name, double usdRate) {
+    public Currency(String code, String name, Double usdRate) {
         this.code = code;
         this.name = name;
         this.usdRate = usdRate;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Double getUsdRate() {
-        return usdRate;
-    }
-
-    public void setUsdRate(Double usdRate) {
-        this.usdRate = usdRate;
-    }
 
     @Override
     public String toString() {
@@ -60,9 +36,5 @@ public class Currency {
                 ", name='" + name + '\'' +
                 ", usdRate=" + usdRate +
                 '}';
-    }
-
-    public Long getId() {
-        return id;
     }
 }

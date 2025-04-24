@@ -20,23 +20,22 @@ public class CurrencyServiceImpl implements CurrencyService {
 
     @Override
     public List<Currency> fetchCurrencyList() {
-        return (List<Currency>)
-                currencyRepository.findAll();
+        return currencyRepository.findAllByOrderByIdAsc();
     }
 
     @Override
     public Currency updateCurrency(Currency currency, Long currencyId) {
         Currency existingCurrency = getCurrencyById(currencyId);
-        if(existingCurrency == null) {
+        if (existingCurrency == null) {
             return null;
         }
-        if(!currency.getCode().isEmpty()) {
+        if (!currency.getCode().isEmpty()) {
             existingCurrency.setCode(currency.getCode());
         }
-        if(!currency.getName().isEmpty()) {
+        if (!currency.getName().isEmpty()) {
             existingCurrency.setName(currency.getName());
         }
-        if(currency.getUsdRate() != null) {
+        if (currency.getUsdRate() != null) {
             existingCurrency.setUsdRate(currency.getUsdRate());
         }
         return currencyRepository.save(existingCurrency);
@@ -45,7 +44,7 @@ public class CurrencyServiceImpl implements CurrencyService {
     @Override
     public Currency updateCurrencyByCode(Currency currency, String code) {
         Currency existingCurrency = getCurrencyByCode(code);
-        if(existingCurrency == null) {
+        if (existingCurrency == null) {
             return null;
         }
         return updateCurrency(currency, existingCurrency.getId());

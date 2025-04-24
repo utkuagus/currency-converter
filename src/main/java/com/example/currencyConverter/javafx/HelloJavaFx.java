@@ -12,7 +12,7 @@ public class HelloJavaFx extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         WebView webView = new WebView();
-        webView.getEngine().load("http://localhost:8080/myapp2/");
+        webView.getEngine().load("http://localhost:8080/myapp/");
 
         StackPane root = new StackPane();
         root.getChildren().add(webView);
