@@ -13,3 +13,7 @@ mvn javafx:run
 ### URL
 
 http://localhost:8080/myapp/
+
+Docker:
+Prebuilt image available at:
+ghcr.io/utkuagus/currency-converter:latest
