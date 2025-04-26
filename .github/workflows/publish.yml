@@ -53,8 +53,8 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ github.repository }}:latest
-          build-args:
-            BASE_IMAGE: ghcr.io/utkuagus/currency-converter-img-last:latest  # Use the remote image as the base
+          build-args: |
+            BASE_IMAGE=ghcr.io/utkuagus/currency-converter-img-last:latest
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Generate artifact attestation
