@@ -1,1 +1,2 @@
-FROM currency-converter-img-last:latest
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
