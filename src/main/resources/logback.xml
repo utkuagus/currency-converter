@@ -18,11 +18,13 @@
     <!-- Set the logger for your package or class -->
     <logger name="com.myapp" level="debug">
         <appender-ref ref="Console"/>
+        <appender-ref ref="File"/>
     </logger>
 
     <!-- Root logger configuration -->
     <root level="debug">
         <appender-ref ref="Console"/>
+        <appender-ref ref="File"/>
     </root>
 
 </configuration>

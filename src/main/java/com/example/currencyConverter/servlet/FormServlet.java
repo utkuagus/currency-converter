@@ -8,6 +8,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
@@ -16,6 +18,7 @@ import java.io.IOException;
 @WebServlet(name = "FormServlet", urlPatterns = "/calculateServlet")
 public class FormServlet extends HttpServlet {
 
+    private static final Logger logger = LoggerFactory.getLogger(FormServlet.class);
     @Autowired
     private CurrencyOptionsPrinter currencyOptionsPrinter;
     @Autowired
@@ -23,14 +26,23 @@ public class FormServlet extends HttpServlet {
 
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this,
-                config.getServletContext());
+        try {
+            SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
+            if (currencyConverter == null || currencyOptionsPrinter == null) {
+                logger.error("Spring beans are not injected correctly");
+            } else {
+                logger.info("Spring beans injected successfully");
+            }
+        } catch (Exception e) {
+            logger.error("Error initializing Spring context: ", e);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)
             throws ServletException, IOException {
+        logger.info("Received request to calculate conversion");
 
         String amount = request.getParameter("amount");
         String fromCurrency = request.getParameter("fromCurrency");

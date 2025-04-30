@@ -49,7 +49,7 @@ public class AppStartupService {
 
     public void start() throws Exception {
         System.out.println("Starting up shared startup logic...");
-        currencyDbOperations.initDb();
+        currencyDbOperations.fillDb();
         synchDb();
     }
 

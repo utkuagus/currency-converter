@@ -1,19 +1,13 @@
 # currency-converter
 
-## JavaFX:
+### Run through docker
 
-mvn javafx:run
+(mvn clean package -DskipTests) -and (copy target\myapp.war docker\tomcat\myapp.war)
 
-## Web Browser:
+cd docker
 
-### Run tomcat in powershell
-
-(mvn clean package -DskipTests) -and (copy target\myapp.war apache-tomcat-10.1.39\webapps\)
+docker-compose up --build
 
 ### URL
 
 http://localhost:8080/myapp/
-
-Docker:
-Prebuilt image available at:
-ghcr.io/utkuagus/currency-converter:latest

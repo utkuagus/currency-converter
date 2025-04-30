@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres-db
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+
+  init-db:
+    image: postgres:15
+    container_name: init-db-container
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./postgres/wait-for-db.sh:/wait-for-db.sh
+      - ./postgres/create_currency_table.sh:/create_currency_table.sh
+    entrypoint: [ "sh", "-c", "/wait-for-db.sh && /create_currency_table.sh" ]
+
+  tomcat:
+    build: ./tomcat
+    container_name: tomcat-app
+    depends_on:
+      - init-db
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./tomcat/myapp.war:/usr/local/tomcat/webapps/myapp.war
+      - ./tomcat/wait-for-currency-table.sh:/usr/local/tomcat/webapps/wait-for-currency-table.sh
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
+    entrypoint: [ "sh", "-c", "/usr/local/tomcat/webapps/wait-for-currency-table.sh && catalina.sh run" ]

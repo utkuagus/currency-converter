@@ -1,5 +1,6 @@
 package com.example.currencyConverter.db;
 
+import com.example.currencyConverter.currencies.repository.CurrencyRepository;
 import com.example.currencyConverter.currencies.service.CurrencyFetcher;
 import com.example.currencyConverter.currencies.entity.Currency;
 import com.example.currencyConverter.currencies.service.CurrencyService;
@@ -17,6 +18,7 @@ public class CurrencyDbOperations {
 
     private final DataSource dataSource;
     private final CurrencyService currencyService;
+    private final CurrencyRepository currencyRepository;
 
     private void callSql(String sql, Connection connection) throws SQLException {
         try (var statement = connection.createStatement()) {
@@ -24,17 +26,11 @@ public class CurrencyDbOperations {
         }
     }
 
-    public void initDb() throws Exception {
+    public void fillDb() throws Exception {
         if (!currencyService.fetchCurrencyList().isEmpty()) {
             return;
         }
         try (Connection connection = dataSource.getConnection()) {
-            String createTableSql = "create table if not exists CURRENCY (id serial primary key, " +
-                    "code varchar(50)," +
-                    "name varchar(50)," +
-                    "usd_rate numeric(50, 2));";
-            callSql(createTableSql, connection);
-
             List<Currency> currencyList = CurrencyFetcher.getCurrencyList();
             for (Currency currency : currencyList) {
                 currencyService.saveCurrency(currency);

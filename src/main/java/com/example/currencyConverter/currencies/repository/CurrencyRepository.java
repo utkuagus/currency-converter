@@ -13,6 +13,4 @@ import java.util.Optional;
 @Repository
 public interface CurrencyRepository extends CrudRepository<Currency, Long>, JpaRepository<Currency, Long> {
     Optional<Currency> findByCode(String code);
-
-    List<Currency> findAllByOrderByIdAsc();
 }

@@ -3,6 +3,7 @@ package com.example.currencyConverter.currencies.service;
 import com.example.currencyConverter.currencies.entity.Currency;
 import com.example.currencyConverter.currencies.repository.CurrencyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class CurrencyServiceImpl implements CurrencyService {
 
     @Override
     public List<Currency> fetchCurrencyList() {
-        return currencyRepository.findAllByOrderByIdAsc();
+        return currencyRepository.findAll(sortByIdAsc());
     }
 
     @Override
@@ -63,5 +64,9 @@ public class CurrencyServiceImpl implements CurrencyService {
     @Override
     public Currency getCurrencyByCode(String code) {
         return currencyRepository.findByCode(code).orElse(null);
+    }
+
+    private Sort sortByIdAsc() {
+        return Sort.by(Sort.Direction.ASC, "id");
     }
 }
