@@ -1,8 +1,8 @@
 # currency-converter
 
-### Run through docker
+### Run through docker (powershell)
 
-(mvn clean package -DskipTests) -and (copy target\myapp.war docker\tomcat\myapp.war)
+(mvn clean package) -and (copy target\myapp.war docker\tomcat\myapp.war)
 
 cd docker
 
