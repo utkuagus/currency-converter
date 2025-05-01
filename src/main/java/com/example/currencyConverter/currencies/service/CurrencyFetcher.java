@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class CurrencyFetcher {
 
-    private static final List<Currency> currencyList = new ArrayList<>();
+    private static List<Currency> currencyList;
 
     public static List<Currency> getCurrencyList() throws Exception {
         fetchCurrencyList();
@@ -31,7 +31,7 @@ public class CurrencyFetcher {
         Element ratesTable = jsoupDoc.select(".ratesTable").get(1);
         Elements tbody = ratesTable.select("tbody");
 
-
+        currencyList = new ArrayList<>();
         for (Element row : tbody.select("tr")) {
             Elements columns = row.select("td");
 

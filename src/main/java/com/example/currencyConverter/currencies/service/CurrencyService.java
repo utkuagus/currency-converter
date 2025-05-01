@@ -13,7 +13,7 @@ public interface CurrencyService {
 
     // Update operation
     Currency updateCurrency(Currency currency,
-                                Long currencyId);
+                            Long currencyId);
 
     Currency updateCurrencyByCode(Currency currency, String code);
 
@@ -23,4 +23,8 @@ public interface CurrencyService {
     Currency getCurrencyById(Long currencyId);
 
     Currency getCurrencyByCode(String code);
+
+    void deleteAll();
+
+    List<Currency> saveAll(List<Currency> currencyList);
 }

@@ -66,6 +66,16 @@ public class CurrencyServiceImpl implements CurrencyService {
         return currencyRepository.findByCode(code).orElse(null);
     }
 
+    @Override
+    public void deleteAll() {
+        currencyRepository.deleteAll();
+    }
+
+    @Override
+    public List<Currency> saveAll(List<Currency> currencyList) {
+        return currencyRepository.saveAll(currencyList);
+    }
+
     private Sort sortByIdAsc() {
         return Sort.by(Sort.Direction.ASC, "id");
     }
