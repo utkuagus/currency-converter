@@ -14,4 +14,4 @@ http://localhost:8080/myapp/
 
 ### if sh files not found error
 
-dos2unix docker/postgres/*.sh docker/tomcat/*.sh (in git bash)
+dos2unix postgres/*.sh tomcat/*.sh (in git bash)
